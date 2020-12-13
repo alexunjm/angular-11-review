@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DirectiveExampleDirective } from './directive-example.directive';
+import { EjemploFiltroPipe } from './ejemplo-filtro.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DirectiveExampleDirective
+    DirectiveExampleDirective,
+    EjemploFiltroPipe
   ],
   imports: [
     BrowserModule,
