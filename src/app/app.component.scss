@@ -1,0 +1,100 @@
+.position-property {
+    width: calc(100% - 100px);
+    margin: 10px auto;
+    border: 1px solid black;
+    display: none;
+    
+    .static {
+        position: static;
+        bottom: 20px;
+        right: 15px;
+        border: solid 2px rgb(180, 89, 89);
+        display: none;
+    }
+    .fixed {
+        position: fixed;
+        bottom: 20px;
+        right: 15px;
+        border: solid 2px rgb(89, 89, 180);
+        display: none;
+    }
+    .relative {
+        position: relative;
+        bottom: 20px;
+        right: 15px;
+        border: solid 2px rgb(180, 148, 89);
+        display: none;
+    }
+    .absolute {
+        position: absolute;
+        bottom: 20px;
+        right: 15px;
+        border: solid 2px rgb(172, 89, 180);
+        display: none;
+    }
+}
+.flex-properties {
+    .flex {
+        display: flex;
+        .item {
+            border: solid 1px blue;
+            flex-basis: 150px;
+
+            background-color: yellow;
+            &:first-child {
+                background-color: green;
+            }
+            &:last-child {
+                background-color: blue;
+            }
+            &:not(:nth-child(odd)) {
+                background-color: aqua;
+            }
+        }
+        
+        @for $i from 1 through 6 {
+            .order_#{$i}{
+                flex-grow: 1;
+            }
+        }
+        .order_2 {
+            order: 2;
+            flex-shrink: 2;
+        }
+        .order_3 {
+            order: 3;
+            flex-shrink: 1;
+        }
+        .order_4 {
+            order: 4;
+            flex-shrink: 2;
+        }
+    }
+}
+.overriding-selectors {
+    height: 800px;
+    display: none;
+}
+.sticky {
+    position: sticky;
+    top: 20px;
+    // right: 15px;
+    border: solid 2px rgb(89, 180, 93);
+    display: none;
+}
+/* 
+.flex-properties .flex .order_3 {
+    order: 5;
+} */
+.order_3 {
+    order: 5 !important;
+}
+
+.ejemplo_cajita {
+    position: relative;
+    label {
+        position: absolute;
+        bottom: 2px;
+        left: 5px;
+    }
+}
