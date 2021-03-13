@@ -1,0 +1,4 @@
+<div *ngIf="show; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template>
+<button (click)="toggle()">toggle</button>
