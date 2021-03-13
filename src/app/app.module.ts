@@ -7,6 +7,7 @@ import { RenderIfComponent } from './components/example-01/render-if/render-if.c
 import { RenderIfExpandedSintaxComponent } from './components/example-02/render-if-expanded-sintax/render-if-expanded-sintax.component';
 import { RenderIfElseComponent } from './components/example-03/render-if-else/render-if-else.component';
 import { RenderIfThenElseComponent } from './components/example-04/render-if-then-else/render-if-then-else.component';
+import { RenderIfThenTemplateComponent } from './components/example-05/render-if-then-template/render-if-then-template.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RenderIfThenElseComponent } from './components/example-04/render-if-the
     RenderIfComponent,
     RenderIfExpandedSintaxComponent,
     RenderIfElseComponent,
-    RenderIfThenElseComponent
+    RenderIfThenElseComponent,
+    RenderIfThenTemplateComponent
   ],
   imports: [
     BrowserModule,
