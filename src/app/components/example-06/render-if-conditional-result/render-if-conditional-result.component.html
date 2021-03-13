@@ -1,0 +1,12 @@
+<button (click)="nextUser()">Next User</button>
+<br />
+<div *ngIf="userObservable | async as user; else loadingAsync">
+  Hello {{ user.last }}, {{ user.first }}!
+</div>
+<div *ngIf="anotherVar as value; else loading">Hello {{ value }}!</div>
+<ng-template #loadingAsync let-user
+  >Waiting... (user is {{ user | json }})</ng-template
+>
+<ng-template #loading let-value
+  >Waiting... (value is {{ value | json }}) <br
+/></ng-template>
