@@ -1,0 +1,13 @@
+<ng-template
+  ngFor
+  let-item
+  [ngForOf]="items"
+  let-i="index"
+  [ngForTrackBy]="trackByFn"
+>
+  <li>{{ item }}</li>
+</ng-template>
+equals to
+<li *ngFor="let item of items; let i = index; trackBy: trackByFn">
+  {{ item }}
+</li>
