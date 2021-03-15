@@ -11,4 +11,8 @@ export class FirstFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  updateName() {
+    this.name.setValue('Nancy');
+  }
 }
