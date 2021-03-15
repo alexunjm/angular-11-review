@@ -1,6 +1,14 @@
-<label>
-  Name:
-  <input type="text" [formControl]="name" />
-</label>
-<p>Value: {{ name.value }}</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName" />
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName" />
+  </label>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+<p>Value: {{ profileForm.value | json }}</p>
 <button (click)="updateName()">Update Name to Nancy</button>

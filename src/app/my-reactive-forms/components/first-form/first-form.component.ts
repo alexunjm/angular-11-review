@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-first-form',
@@ -7,12 +7,20 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./first-form.component.scss'],
 })
 export class FirstFormComponent implements OnInit {
-  name = new FormControl('');
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+  });
   constructor() {}
 
   ngOnInit(): void {}
 
   updateName() {
-    this.name.setValue('Nancy');
+    this.profileForm.get('firstName')?.setValue('Nancy');
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
   }
 }
