@@ -25,6 +25,15 @@ export class FirstFormComponent implements OnInit {
     this.profileForm.get('firstName')?.setValue('Nancy');
   }
 
+  updateProfile() {
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street',
+      },
+    });
+  }
+
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
