@@ -4,6 +4,16 @@
     <input type="text" formControlName="firstName" required />
   </label>
 
+  <div
+    *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)"
+    class="alert alert-danger"
+  >
+    <div *ngIf="firstName?.errors?.required">Name is required.</div>
+    <div *ngIf="firstName?.errors?.minlength">
+      Name must be at least 6 characters long.
+    </div>
+    <div *ngIf="firstName?.errors?.forbiddenName">Name cannot be Bob.</div>
+  </div>
   <label>
     Last Name:
     <input type="text" formControlName="lastName" />
@@ -31,6 +41,19 @@
       Zip Code:
       <input type="text" formControlName="zip" />
     </label>
+  </div>
+
+  <div formArrayName="aliases">
+    <h3>Aliases</h3>
+    <button (click)="addAlias()">Add Alias</button>
+
+    <div *ngFor="let alias of aliases.controls; let i = index">
+      <!-- The repeated alias template -->
+      <label>
+        Alias:
+        <input type="text" [formControlName]="i" />
+      </label>
+    </div>
   </div>
 
   <button type="submit" [disabled]="!profileForm.valid">Submit</button>

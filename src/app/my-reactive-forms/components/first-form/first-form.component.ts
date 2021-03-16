@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-first-form',
@@ -8,7 +13,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class FirstFormComponent implements OnInit {
   profileForm = this.fb.group({
-    firstName: ['', Validators.required],
+    firstName: ['', [Validators.required, Validators.minLength(6)]],
     lastName: [''],
     address: this.fb.group({
       street: [''],
@@ -16,13 +21,22 @@ export class FirstFormComponent implements OnInit {
       state: [''],
       zip: [''],
     }),
+    aliases: this.fb.array([this.fb.control('')]),
   });
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+  }
+
   updateName() {
-    this.profileForm.get('firstName')?.setValue('Nancy');
+    this.firstName?.setValue('Nancy');
   }
 
   updateProfile() {
@@ -37,5 +51,9 @@ export class FirstFormComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.profileForm.value);
+  }
+
+  get firstName(): AbstractControl | null {
+    return this.profileForm.get('firstName');
   }
 }
