@@ -7,7 +7,8 @@ import { SecondComponent } from './components/second/second.component';
 const routes: Routes = [
   { path: 'first', component: FirstComponent },
   { path: 'second', component: SecondComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'page-not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/page-not-found' },
 ];
 
 @NgModule({
