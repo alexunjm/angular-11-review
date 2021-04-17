@@ -7,8 +7,8 @@ import { SecondComponent } from './second/second.component';
 const routes: Routes = [
   { path: 'first', component: FirstComponent },
   { path: 'second', component: SecondComponent },
-  // { path: 'page-not-found', component: PageNotFoundComponent },
-  { path: '', redirectTo: '/first', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '', redirectTo: '/first', pathMatch: 'full' },
+  { path: 'tree-m', loadChildren: () => import('./tree-m/tree-m.module').then(m => m.TreeMModule) },
   { path: '**', component: PageNotFoundComponent },
 ];
 
