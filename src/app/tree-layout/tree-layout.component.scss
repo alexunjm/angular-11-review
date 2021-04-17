@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+
+  & > * {
+    margin: 10px;
+
+    &:not(.content) {
+      border-radius: 4px;
+      border: 1px solid lightcoral;
+      padding: 10px;
+    }
+  }
+}
