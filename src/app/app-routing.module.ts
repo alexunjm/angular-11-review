@@ -16,7 +16,7 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./module/tree-m/tree-m.module').then((m) => m.TreeMModule),
+          import('./modules/tree-m/tree-m.module').then((m) => m.TreeMModule),
       },
     ],
   },
