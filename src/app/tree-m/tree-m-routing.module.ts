@@ -3,10 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TreeMComponent } from './tree-m.component';
 
-const routes: Routes = [{ path: '', component: TreeMComponent }];
+const routes: Routes = [
+  { path: '', component: TreeMComponent },
+  { path: 'leaf', component: TreeMComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TreeMRoutingModule { }
+export class TreeMRoutingModule {}
