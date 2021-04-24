@@ -36,6 +36,10 @@ Inside this folder are all route modules configured on app-routing.module.ts
 
 Inside this folder are shared {modules, components, services, ...}
 
+## API Rest
+
+    https://github.com/public-apis/public-apis
+
 ### Executed commands
 
     ng g m pages/home -m app --route home

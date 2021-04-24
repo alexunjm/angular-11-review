@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MockListService } from '@mocks/mock-list.service';
+import { AnimeChanService } from '@services/anime-chan.service';
+import { Quote } from '@shared/interfaces/data.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +9,14 @@ import { MockListService } from '@mocks/mock-list.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  selectedNumber = 0;
-  someList: { number: number; text: string }[] = [];
-  constructor(private mock: MockListService) {}
+  quote$: Observable<Quote | null>;
+  constructor(private animeChan: AnimeChanService) {
+    this.quote$ = animeChan.quotes$;
+  }
 
-  ngOnInit(): void {
-    this.someList = this.mock.listOfNumbers();
+  ngOnInit(): void {}
+
+  getAnimeQuotes() {
+    this.animeChan.getNewQuote();
   }
 }
