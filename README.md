@@ -44,3 +44,7 @@ Inside this folder are all route modules configured on app-routing.module.ts
 
     ng g m shared/components/footer
     ng g c shared/components/footer
+
+
+    ng g m shared/components/button
+    ng g c shared/components/button
