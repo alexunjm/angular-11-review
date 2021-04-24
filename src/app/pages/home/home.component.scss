@@ -1,0 +1,13 @@
+ul {
+  li {
+    cursor: pointer;
+    padding: 5px;
+    list-style-type: none;
+
+    &.selected {
+      background-color: #3336eb;
+      color: white;
+      padding: 8px;
+    }
+  }
+}

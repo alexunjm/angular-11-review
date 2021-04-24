@@ -1,2 +1,11 @@
 <p>home works!</p>
-<app-button>hola</app-button>
+<ul>
+  <li
+    [ngClass]="{ selected: elm.number == selectedNumber }"
+    *ngFor="let elm of someList"
+    (click)="selectedNumber = elm.number"
+  >
+    {{ elm.text }}
+  </li>
+</ul>
+<app-button (click)="selectedNumber = 0">Limpiar selección</app-button>

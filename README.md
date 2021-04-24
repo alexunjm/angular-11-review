@@ -32,6 +32,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Inside this folder are all route modules configured on app-routing.module.ts
 
+### Shared
+
+Inside this folder are shared {modules, components, services, ...}
+
 ### Executed commands
 
     ng g m pages/home -m app --route home
@@ -48,3 +52,5 @@ Inside this folder are all route modules configured on app-routing.module.ts
 
     ng g m shared/components/button
     ng g c shared/components/button
+
+    ng g s shared/services/mocks/mock-list
