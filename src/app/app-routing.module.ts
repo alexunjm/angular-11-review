@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FirstComponent } from './first/first.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SecondComponent } from './second/second.component';
-import { TreeLayoutComponent } from './tree-layout/tree-layout.component';
+import { FirstComponent } from './pages/first/first.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { SecondComponent } from './pages/second/second.component';
+import { TreeLayoutComponent } from './pages/tree-layout/tree-layout.component';
 
 const routes: Routes = [
   { path: 'first', component: FirstComponent },
@@ -16,7 +16,9 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./modules/tree-m/tree-m.module').then((m) => m.TreeMModule),
+          import('./modules/pages/tree-m/tree-m.module').then(
+            (m) => m.TreeMModule
+          ),
       },
     ],
   },
