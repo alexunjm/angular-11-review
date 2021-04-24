@@ -1,25 +1,32 @@
+import { OnDestroy } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Quote } from '@shared/interfaces/data.interface';
 import { AnimeChanService } from '@shared/services/anime-chan/anime-chan.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  allQuotes$: Observable<Quote[] | null>;
-  quote$: Observable<Quote | null>;
+export class HomeComponent implements OnInit, OnDestroy {
+  quote!: Quote;
+  unsubscribe: Array<any> = [];
 
-  constructor(private animeChan: AnimeChanService) {
-    this.quote$ = animeChan.quotes$;
-    this.allQuotes$ = animeChan.allQuotes$;
+  constructor(private animeChan: AnimeChanService) {}
+
+  ngOnInit(): void {
+    this.getAnimeQuotes();
   }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.unsubscribe.forEach((fn) => fn());
+  }
 
   getAnimeQuotes() {
-    this.animeChan.getNewQuote();
+    this.unsubscribe.push(
+      this.animeChan.getNewQuote().subscribe((q) => {
+        this.quote = q;
+      })
+    );
   }
 }

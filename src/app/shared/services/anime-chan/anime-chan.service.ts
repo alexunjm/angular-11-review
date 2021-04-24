@@ -7,31 +7,15 @@ import { switchMap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AnimeChanService {
-  private allQuotesSubject = new BehaviorSubject<Quote[] | null>(null);
-  allQuotes$: Observable<Quote[] | null>;
+  constructor() {}
 
-  private randomQuotesSubject = new BehaviorSubject<Quote | null>(null);
-  quotes$: Observable<Quote | null>;
-
-  constructor() {
-    this.quotes$ = this.randomQuotesSubject.asObservable();
-    this.allQuotes$ = this.allQuotesSubject.asObservable();
-  }
-
-  getNewQuote(): void {
+  getNewQuote(): Observable<Quote> {
     const data = from(fetch('https://animechan.vercel.app/api/random'));
 
-    data
-      .pipe(
-        switchMap((response) => {
-          return response.json();
-        })
-      )
-      .subscribe((quote) => {
-        this.randomQuotesSubject.next(quote);
-        // acumular los quotes que van llegando en otro observable
-        const quotesArray = this.allQuotesSubject.value || [];
-        this.allQuotesSubject.next([...quotesArray, quote]);
-      });
+    return data.pipe(
+      switchMap((response) => {
+        return response.json();
+      })
+    );
   }
 }

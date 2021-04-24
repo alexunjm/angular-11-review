@@ -1,16 +1,9 @@
-<div class="quotes">
-  <ul>
-    <li *ngFor="let q of allQuotes$ | async">
-      {{ q.anime }}:{{ q.character }} => {{ q.quote }}
-    </li>
-  </ul>
-</div>
 <div class="quote">
   <h2>último</h2>
   <br />
-  <div *ngIf="quote$ | async as q">
-    {{ q?.anime }}:{{ q?.character }} =>
-    {{ q?.quote }}
+  <div *ngIf="quote">
+    {{ quote.anime }}:{{ quote.character }} =>
+    {{ quote.quote }}
   </div>
 </div>
 <app-button (click)="getAnimeQuotes()">Obtener frase de anime</app-button>
