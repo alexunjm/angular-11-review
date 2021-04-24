@@ -38,3 +38,9 @@ Inside this folder are all route modules configured on app-routing.module.ts
 
     ng g m shared/components/header
     ng g c shared/components/header
+
+    ng g m shared/components/side-menu
+    ng g c shared/components/side-menu
+
+    ng g m shared/components/footer
+    ng g c shared/components/footer
