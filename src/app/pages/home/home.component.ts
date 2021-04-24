@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AnimeChanService } from '@services/anime-chan.service';
 import { Quote } from '@shared/interfaces/data.interface';
+import { AnimeChanService } from '@shared/services/anime-chan/anime-chan.service';
 import { Observable } from 'rxjs';
 
 @Component({

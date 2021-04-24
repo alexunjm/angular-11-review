@@ -4,10 +4,10 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@pages/*": ["src/app/pages/*"],
-      "@shared/*": ["src/app/shared/*"],
+      "@mocks/*": ["src/app/shared/services/mocks/*"],
       "@services/*": ["src/app/shared/services/*"],
-      "@mocks/*": ["src/app/shared/services/mocks/*"]
+      "@shared/*": ["src/app/shared/*"],
+      "@pages/*": ["src/app/pages/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
