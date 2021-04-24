@@ -9,9 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  allQuotes$: Observable<Quote[] | null>;
   quote$: Observable<Quote | null>;
+
   constructor(private animeChan: AnimeChanService) {
     this.quote$ = animeChan.quotes$;
+    this.allQuotes$ = animeChan.allQuotes$;
   }
 
   ngOnInit(): void {}
