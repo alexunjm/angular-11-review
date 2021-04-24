@@ -35,3 +35,6 @@ Inside this folder are all route modules configured on app-routing.module.ts
 ### Executed commands
 
     ng g m pages/home -m app --route home
+
+    ng g m shared/components/header
+    ng g c shared/components/header
