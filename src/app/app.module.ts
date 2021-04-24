@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutModule } from './shared/layout/layout.module';
+import { LayoutModule } from './shared/components/layout/layout.module';
 
 @NgModule({
   declarations: [AppComponent],

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderModule } from '../components/header/header.module';
-import { SideMenuModule } from '../components/side-menu/side-menu.module';
-import { FooterModule } from '../components/footer/footer.module';
+import { HeaderModule } from './header/header.module';
+import { SideMenuModule } from './side-menu/side-menu.module';
+import { FooterModule } from './footer/footer.module';
 
 @NgModule({
   declarations: [],
