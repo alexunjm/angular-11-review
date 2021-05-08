@@ -11,19 +11,21 @@ const routes: Routes = [
       {
         path: 'random',
         loadChildren: () =>
-          import('@pages/quotes/random/random.module').then(
+          import('@pages/quotes/routes/random/random.module').then(
             (m) => m.RandomModule
           ),
       },
       {
         path: 'anime',
         loadChildren: () =>
-          import('@pages/quotes/anime/anime.module').then((m) => m.AnimeModule),
+          import('@pages/quotes/routes/anime/anime.module').then(
+            (m) => m.AnimeModule
+          ),
       },
       {
         path: 'character',
         loadChildren: () =>
-          import('@pages/quotes/character/character.module').then(
+          import('@pages/quotes/routes/character/character.module').then(
             (m) => m.CharacterModule
           ),
       },
