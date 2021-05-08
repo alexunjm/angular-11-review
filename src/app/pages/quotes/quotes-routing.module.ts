@@ -29,7 +29,7 @@ const routes: Routes = [
             (m) => m.CharacterModule
           ),
       },
-      // { path: '**', redirectTo: 'random' },
+      { path: '**', redirectTo: 'random' },
     ],
   },
 ];
