@@ -32,3 +32,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 11. /character-quotes
     - Cards with 4 anime quotes
     - Button for load another quote (creates a new card with its quote)
+
+## Configuring tailwind
+
+      npm i -D tailwindcss@latest postcss@latest autoprefixer@latest
+      npm i -D postcss-import@12 postcss-loader@4 postcss-scss@3
+      ng add ngx-build-plus
+      npx tailwindcss init
+
+https://medium.com/tunaiku-tech/angular-11-tailwindcss-2-0-blazing-fast-cfa20ae3a5e9
