@@ -9,7 +9,7 @@ import { User } from '../../model/user';
 export class Example1Component implements OnInit {
   roles = ['SysAdmin', 'Teacher', 'Student'];
 
-  user!: User;
+  user: User = new User('', '', '');
 
   constructor() {}
 

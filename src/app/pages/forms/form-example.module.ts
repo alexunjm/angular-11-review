@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormsRoutingModule } from './forms-routing.module';
-import { FormsComponent } from './forms.component';
+import { FormsRoutingModule } from './form-example-routing.module';
+import { FormExampleComponent } from './form-example.component';
 import { TemplateDrivenModule } from './template-driven/template-driven.module';
 import { ReactiveFormsModule } from './reactive-forms/reactive-forms.module';
 
 @NgModule({
-  declarations: [FormsComponent],
+  declarations: [FormExampleComponent],
   imports: [
     CommonModule,
     FormsRoutingModule,
@@ -15,4 +15,4 @@ import { ReactiveFormsModule } from './reactive-forms/reactive-forms.module';
     ReactiveFormsModule,
   ],
 })
-export class FormsModule {}
+export class FormExampleModule {}

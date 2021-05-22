@@ -1,16 +1,48 @@
-<div class="form-group">
-  <label for="role">User Role</label>
-  <select class="form-control" id="role" required>
-    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
-  </select>
-</div>
+TODO: remove this: {{ user | json }}
 
-<input
-  type="text"
-  class="form-control"
-  id="email"
-  required
-  [(ngModel)]="user.email"
-  name="email"
-/>
-TODO: remove this: {{ user.email }}
+<div class="container-sm m-3 p-3 border-top border-bottom">
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="role">User Role</label>
+    <select class="form-select" id="role" required>
+      <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Email</span>
+    <input
+      type="email"
+      class="form-control"
+      placeholder="name@example.com"
+      aria-label="Email address"
+      aria-describedby="basic-addon1"
+      id="email"
+      required
+      [(ngModel)]="user.email"
+      name="email"
+    />
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-text" id="basic-addon2">Password</span>
+    <input
+      type="password"
+      class="form-control"
+      placeholder="********"
+      aria-label="Password"
+      aria-describedby="basic-addon2"
+      id="password"
+      required
+      [(ngModel)]="user.password"
+      name="password"
+    />
+  </div>
+</div>
+<!-- 
+<div class="container-md border">100% wide until medium breakpoint</div>
+<div class="container-lg border">100% wide until large breakpoint</div>
+<div class="container-xl border">100% wide until extra large breakpoint</div>
+<div class="container-xxl border">
+  100% wide until extra extra large breakpoint
+</div>
+ -->
