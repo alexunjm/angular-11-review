@@ -1,48 +1,89 @@
-TODO: remove this: {{ user | json }}
-
 <div class="container-sm m-3 p-3 border-top border-bottom">
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="role">User Role</label>
-    <select class="form-select" id="role" required>
-      <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
-    </select>
-  </div>
+  <span class="text-secondary"> TODO: remove this: {{ user | json }} </span>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="role">User Role</label>
+      <select
+        class="form-select"
+        id="role"
+        [(ngModel)]="user.role"
+        name="role"
+        required
+      >
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
 
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Email</span>
-    <input
-      type="email"
-      class="form-control"
-      placeholder="name@example.com"
-      aria-label="Email address"
-      aria-describedby="basic-addon1"
-      id="email"
-      required
-      [(ngModel)]="user.email"
-      name="email"
-    />
-  </div>
+    <div
+      [hidden]="
+        loginForm.form.controls.role?.pristine ||
+        loginForm.form.controls.role?.valid
+      "
+      class="alert alert-danger"
+    >
+      "User Role" is required
+    </div>
 
-  <div class="input-group">
-    <span class="input-group-text" id="basic-addon2">Password</span>
-    <input
-      type="password"
-      class="form-control"
-      placeholder="********"
-      aria-label="Password"
-      aria-describedby="basic-addon2"
-      id="password"
-      required
-      [(ngModel)]="user.password"
-      name="password"
-    />
-  </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Email</span>
+      <input
+        type="email"
+        class="form-control"
+        placeholder="name@example.com"
+        aria-label="Email address"
+        aria-describedby="basic-addon1"
+        id="email"
+        required
+        [(ngModel)]="user.email"
+        name="email"
+      />
+    </div>
+
+    <div
+      [hidden]="
+        loginForm.form.controls.email?.pristine ||
+        loginForm.form.controls.email?.valid
+      "
+      class="alert alert-danger"
+    >
+      "Email" is required
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon2">Password</span>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="********"
+        aria-label="Password"
+        aria-describedby="basic-addon2"
+        id="password"
+        required
+        [(ngModel)]="user.password"
+        name="password"
+      />
+    </div>
+
+    <div
+      [hidden]="
+        loginForm.form.controls.password?.pristine ||
+        loginForm.form.controls.password?.valid
+      "
+      class="alert alert-danger"
+    >
+      "Password" is required
+    </div>
+
+    <button
+      type="submit"
+      class="btn"
+      [ngClass]="[loginForm.form.valid ? 'btn-success' : 'btn-outline-success']"
+      [disabled]="!loginForm.form.valid"
+    >
+      Submit
+    </button>
+    <button type="button" class="btn btn-light" (click)="clean(loginForm)">
+      Reset Form
+    </button>
+  </form>
 </div>
-<!-- 
-<div class="container-md border">100% wide until medium breakpoint</div>
-<div class="container-lg border">100% wide until large breakpoint</div>
-<div class="container-xl border">100% wide until extra large breakpoint</div>
-<div class="container-xxl border">
-  100% wide until extra extra large breakpoint
-</div>
- -->

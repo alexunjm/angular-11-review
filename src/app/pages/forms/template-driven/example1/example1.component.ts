@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from '../../model/user';
 
 @Component({
@@ -9,9 +10,22 @@ import { User } from '../../model/user';
 export class Example1Component implements OnInit {
   roles = ['SysAdmin', 'Teacher', 'Student'];
 
-  user: User = new User('', '', '');
+  user!: User;
 
-  constructor() {}
+  constructor() {
+    this.clean();
+  }
 
   ngOnInit(): void {}
+
+  clean(form?: NgForm): void {
+    this.user = new User('', '', '');
+    if (form) {
+      form.reset();
+    }
+  }
+
+  login() {
+    console.log(this.user);
+  }
 }
