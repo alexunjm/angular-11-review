@@ -13,17 +13,10 @@ export class Example1Component implements OnInit {
   user!: User;
 
   constructor() {
-    this.clean();
+    this.user = new User('', '', '');
   }
 
   ngOnInit(): void {}
-
-  clean(form?: NgForm): void {
-    this.user = new User('', '', '');
-    if (form) {
-      form.reset();
-    }
-  }
 
   login() {
     console.log(this.user);
