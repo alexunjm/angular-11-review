@@ -60,6 +60,7 @@
         id="password"
         required
         [(ngModel)]="user.password"
+        [ngModelOptions]="{ updateOn: 'blur' }"
         name="password"
       />
     </div>
@@ -82,7 +83,7 @@
     >
       Submit
     </button>
-    <button type="button" class="btn btn-light" (click)="clean(loginForm)">
+    <button type="button" class="btn btn-light" (click)="loginForm.reset()">
       Reset Form
     </button>
   </form>
