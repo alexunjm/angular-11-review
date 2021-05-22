@@ -1,1 +1,16 @@
-<p>example1 works!</p>
+<div class="form-group">
+  <label for="role">User Role</label>
+  <select class="form-control" id="role" required>
+    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+  </select>
+</div>
+
+<input
+  type="text"
+  class="form-control"
+  id="email"
+  required
+  [(ngModel)]="user.email"
+  name="email"
+/>
+TODO: remove this: {{ user.email }}
