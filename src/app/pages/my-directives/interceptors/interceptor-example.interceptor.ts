@@ -4,8 +4,10 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpEventType,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class InterceptorExampleInterceptor implements HttpInterceptor {
@@ -20,6 +22,13 @@ export class InterceptorExampleInterceptor implements HttpInterceptor {
     const modifiedRequest = request.clone({
       headers: request.headers.append('Auth', 'abc'),
     });
-    return next.handle(modifiedRequest);
+    return next.handle(modifiedRequest).pipe(
+      tap((event) => {
+        console.log({ [request.url]: { event } });
+        if (event.type === HttpEventType.Response) {
+          console.log({ body: event.body });
+        }
+      })
+    );
   }
 }
