@@ -5,12 +5,14 @@ import { MyDirectivesRoutingModule } from './my-directives-routing.module';
 import { MyDirectivesComponent } from './my-directives.component';
 import { Example1Component } from './components/example1/example1.component';
 import { HighlightTextDirective } from './directives/highlight-text.directive';
+import { SumDetailPipe } from './pipes/sum-detail.pipe';
 
 @NgModule({
   declarations: [
     MyDirectivesComponent,
     HighlightTextDirective,
     Example1Component,
+    SumDetailPipe,
   ],
   imports: [CommonModule, MyDirectivesRoutingModule],
 })

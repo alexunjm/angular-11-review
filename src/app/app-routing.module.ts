@@ -10,7 +10,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: '**/*',
+    path: '**',
     redirectTo: '/my-directives',
   },
 ];
