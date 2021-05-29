@@ -17,6 +17,9 @@ export class InterceptorExampleInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     console.log(`consumiendo ${request.url}`);
 
-    return next.handle(request);
+    const modifiedRequest = request.clone({
+      headers: request.headers.append('Auth', 'abc'),
+    });
+    return next.handle(modifiedRequest);
   }
 }
