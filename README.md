@@ -11,4 +11,7 @@
 
 ## Interceptors
 
+https://angular.io/guide/http#intercepting-requests-and-responses
+
     ng g interceptor pages/my-directives/interceptors/interceptor-example
+    ng g s pages/my-directives/services/anime-chan
